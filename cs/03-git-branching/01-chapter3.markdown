@@ -4,9 +4,9 @@ Skoro každý systém pro správu verzí má svou správu větví. Vytvořením 
 
 Spousta lidí označuje právě _branchování_  v GITu jako tu "killer featuru", tedy vlastnost, díky níž stojí za to přejít na GIT, protože právě vytváření větví v GITu je něco, co je oproti ostatním verzovacím systémům vyjímečné. Proč je to tak vyjímečné? Cesta, jakou GIT vytváří jednotlivé větve ve vašem repozitáři je neuvěřitelně přímočará a jednoduchá, takže vytváření nových větví nezabere více než pár sekund a i přepínání mezi jednotlivými větvemi nezabere více než pár okamžiků. Oproti jiným verzovacím systémům způsob práce v GITu probíhá tak, že vytváření nový _branchí_ a jejich opětovné slučování s hlavní větví projektu probíhá mnohokrát denně, proto je nezbytné pochopit a naučit se používat tuto funkčnost, protože tím získáte výkonný a unikátní nástroj, který skutečně změní váš způsob vývoje.
 
-## What a Branch Is ##
+## Jak to vlasně funguje ##
 
-To really understand the way Git does branching, we need to take a step back and examine how Git stores its data. As you may remember from Chapter 1, Git doesn’t store data as a series of changesets or deltas, but instead as a series of snapshots.
+Abychom porozuměli způsob, jakým Git řeší _branche_, je potřeba jít o krok zpět a pozorně prozkoumat jak Git ukládá svá data. V kapitole 1 jsme popisovali, jak Git ukládá svá data. Řekli jsme si, že Git ukládá data v repozitáři jako sérii změn a rozdílů mezi jednotlivými verzemi, místo toho, aby jednotlivé verze byly snímky celých souborů.
 
 When you commit in Git, Git stores a commit object that contains a pointer to the snapshot of the content you staged, the author and message metadata, and zero or more pointers to the commit or commits that were the direct parents of this commit: zero parents for the first commit, one parent for a normal commit, and multiple parents for a commit that results from a merge of two or more branches.
 
