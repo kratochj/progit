@@ -1,8 +1,8 @@
-# Git Branching #
+# Větve v Gitu #
 
-Nearly every VCS has some form of branching support. Branching means you diverge from the main line of development and continue to do work without messing with that main line. In many VCS tools, this is a somewhat expensive process, often requiring you to create a new copy of your source code directory, which can take a long time for large projects.
+Skoro každý systém pro správu verzí má svou správu větví. Vytvořením vlastní větve (branchování) se v podstatě oddělíte od hlavní linie vývoje a můžete pokračovat aniž byste ovlivňovali obsah hlavní vývojové větve vaší rozpracovanou prací. Ve spoustě ostatních systémů se jedná o velice náročný proces, který často znamená vytvoření kopie souborů vašeho zdrojového kódu, což v případě velkých projektů může být časově náročné. 
 
-Some people refer to the branching model in Git as its “killer feature,” and it certainly sets Git apart in the VCS community. Why is it so special? The way Git branches is incredibly lightweight, making branching operations nearly instantaneous and switching back and forth between branches generally just as fast. Unlike many other VCSs, Git encourages a workflow that branches and merges often, even multiple times in a day. Understanding and mastering this feature gives you a powerful and unique tool and can literally change the way that you develop.
+Spousta lidí označuje právě _branchování_  v GITu jako tu "killer featuru", tedy vlastnost, díky níž stojí za to přejít na GIT, protože právě vytváření větví v GITu je něco, co je oproti ostatním verzovacím systémům vyjímečné. Proč je to tak vyjímečné? Cesta, jakou GIT vytváří jednotlivé větve ve vašem repozitáři je neuvěřitelně přímočará a jednoduchá, takže vytváření nových větví nezabere více než pár sekund a i přepínání mezi jednotlivými větvemi nezabere více než pár okamžiků. Oproti jiným verzovacím systémům způsob práce v GITu probíhá tak, že vytváření nový _branchí_ a jejich opětovné slučování s hlavní větví projektu probíhá mnohokrát denně, proto je nezbytné pochopit a naučit se používat tuto funkčnost, protože tím získáte výkonný a unikátní nástroj, který skutečně změní váš způsob vývoje.
 
 ## What a Branch Is ##
 
