@@ -8,9 +8,9 @@ Spousta lidí označuje právě _branchování_  v GITu jako tu "killer featuru"
 
 Abychom porozuměli způsob, jakým Git řeší _branche_, je potřeba jít o krok zpět a pozorně prozkoumat jak Git ukládá svá data. V kapitole 1 jsme popisovali, jak Git ukládá svá data. Řekli jsme si, že Git ukládá data v repozitáři jako sérii změn a rozdílů mezi jednotlivými verzemi, místo toho, aby jednotlivé verze byly snímky celých souborů.
 
-When you commit in Git, Git stores a commit object that contains a pointer to the snapshot of the content you staged, the author and message metadata, and zero or more pointers to the commit or commits that were the direct parents of this commit: zero parents for the first commit, one parent for a normal commit, and multiple parents for a commit that results from a merge of two or more branches.
+Jakmile vytvoříte commit v Gitu, Git si uloží tento objekt společně s ukazatelem na snímek obsahu, který ukládáte včetně informací o autoru a uživatelský popis commitu, dále ukazatele na commity, které jsou vlastními předky našeho commitu. Tyto ukazatelé mohou být buď žádný (v případě úvodního commitu), jeden (běžný commit) nebo více (v případě, že naším commit proběhl sloučením dvou a více větví).
 
-To visualize this, let’s assume that you have a directory containing three files, and you stage them all and commit. Staging the files checksums each one (the SHA-1 hash we mentioned in Chapter 1), stores that version of the file in the Git repository (Git refers to them as blobs), and adds that checksum to the staging area:
+Pro názornost si představme, že máme adresář, který obsahuje tři soubory. Tyto soubory přidáte do indexu (_stage_) a commitnete. Přidáním do indexu se pro každý soubor vytvoří kontrolní součet (SHA-1, zmiňovali jsme v kapitole 1) a tato verze je uložena do repositáře Gitu (Git to řeší podobně jako databázové objekty typu blob). Zároveň jsou tyto kontrolní součty přidány do indexu souboru (_staging area_):
 
 	$ git add README test.rb LICENSE
 	$ git commit -m 'initial commit of my project'
