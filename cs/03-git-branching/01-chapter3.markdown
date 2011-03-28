@@ -13,24 +13,24 @@ Jakmile vytvoříte commit v Gitu, Git si uloží tento objekt společně s ukaz
 Pro názornost si představme, že máme adresář, který obsahuje tři soubory. Tyto soubory přidáte do indexu (_stage_) a commitnete. Přidáním do indexu se pro každý soubor vytvoří kontrolní součet (SHA-1, zmiňovali jsme v kapitole 1) a tato verze je uložena do repositáře Gitu (Git to řeší podobně jako databázové objekty typu blob). Zároveň jsou tyto kontrolní součty přidány do indexu souboru (_staging area_):
 
 	$ git add README test.rb LICENSE
-	$ git commit -m 'initial commit of my project'
+	$ git commit -m 'Uvodni commit naseho projektu'
 
-When you create the commit by running `git commit`, Git checksums each subdirectory (in this case, just the root project directory) and stores those tree objects in the Git repository. Git then creates a commit object that has the metadata and a pointer to the root project tree so it can re-create that snapshot when needed.
+Jakmile commitnete data pomocí `git commit`, Git vytvoří kontrolní součty pro jednotlivé pro každý adresář (v našem případě pouze pro kořenový adresář) a uloží tento strom do uložiště Gitu. Git poté vytvoří speciální objekt, který reprezentuje náš commit, který obsahuje informace o tomto commitu (například uživatelský popis commitu - _commit message_) a ukazatel na kořenový objekt projektového stromu tak, aby bylo možné v případě potřeby opětovně vytvořit snímek této verze.
 
-Your Git repository now contains five objects: one blob for the contents of each of your three files, one tree that lists the contents of the directory and specifies which file names are stored as which blobs, and one commit with the pointer to that root tree and all the commit metadata. Conceptually, the data in your Git repository looks something like Figure 3-1.
+Vaše uložiště gitun nyní obsahuje celkem pět objektů: jeden blob, který obsahuje vlastní data, pro každý z vašich tří souborů, jeden objekt popisující adresářovou strukturu a zařazení commitnutých souborů právě do této adresářové struktury a který specifikuje jména jednotlivých souborů, které jsou uloženy jako bloby a nakonec objekt, který obsahuje vlastní metadata našeho commitu společně s ukazatelem na nejvyšší kořenovou položku námi commitnutého stromu objektů. Na následujícím obrázku (obrázek 3-1) je schématicky znázorněna forma a struktura uložených informací do Gitu.
 
 Insert 18333fig0301.png 
-Figure 3-1. Single commit repository data
+Obrázek 3-1. Jednoduchý commit do Gitu
 
-If you make some changes and commit again, the next commit stores a pointer to the commit that came immediately before it. After two more commits, your history might look something like Figure 3-2.
+Pokud poté vytvoříte nějaké změny a commitnete je opět do Gitu, následující commit bude poté uložen společně s ukazatelem na commit, který byl vytvořen bezprostředně předtím. Tedy po dalších dvou commitech bude vaše historie vypadat zhruba tak, jak je zobrazeno na obrázku 3-2.
 
 Insert 18333fig0302.png 
-Figure 3-2. Git object data for multiple commits 
+Figure 3-2. Interni data v Gitu po více commitech
 
-A branch in Git is simply a lightweight movable pointer to one of these commits. The default branch name in Git is master. As you initially make commits, you’re given a master branch that points to the last commit you made. Every time you commit, it moves forward automatically.
+A nyní se dostávámě v větvím (_branch_). Branch je zjednodušeně řečeno snadno přesunutelný ukazatem na jeden z těchto commitů. Výchozí větev v Gitu je _master_. Vaše úvodní commity jsou ukládány právě do větve _master_, která ukazuje na váš poslední commit. Pokazdé, když vytvoříte commit, tento ukazatel je automaticky posunut na tento nový commit.  
 
 Insert 18333fig0303.png 
-Figure 3-3. Branch pointing into the commit data’s history
+Figure 3-3. Ukazatel větve v historii commitů
 
 What happens if you create a new branch? Well, doing so creates a new pointer for you to move around. Let’s say you create a new branch called testing. You do this with the `git branch` command:
 
