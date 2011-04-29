@@ -32,14 +32,14 @@ A nyní se dostávámě v větvím (_branch_). Branch je zjednodušeně řečeno
 Insert 18333fig0303.png 
 Figure 3-3. Ukazatel větve v historii commitů
 
-What happens if you create a new branch? Well, doing so creates a new pointer for you to move around. Let’s say you create a new branch called testing. You do this with the `git branch` command:
+Co se tedy stane, když vytvoříte novou větev? V podstatě to, že se vytvoří nový ukazatel, na který následně navážete svou práci. Řekněme tedy, že se chystáte vytvořit novou větev nazvanou testing. Tu vytvoříte pomocí příkazu `git branch`:
 
 	$ git branch testing
 
-This creates a new pointer at the same commit you’re currently on (see Figure 3-4).
+Tím se vytvoří ukazatel na místě, které odpovídá konkrétnímu commitu, který máte aktivní (viz obr. 3-4).
 
 Insert 18333fig0304.png 
-Figure 3-4. Multiple branches pointing into the commit’s data history
+Obrázek 3-4. Více větví v historii commitů
 
 How does Git know what branch you’re currently on? It keeps a special pointer called HEAD. Note that this is a lot different than the concept of HEAD in other VCSs you may be used to, such as Subversion or CVS. In Git, this is a pointer to the local branch you’re currently on. In this case, you’re still on master. The git branch command only created a new branch — it didn’t switch to that branch (see Figure 3-5).
 
